@@ -11,5 +11,7 @@ dependencies = [
 	"llama-index-llms-openai-like",
 	"llama-index-llms-dashscope",
 	"llama-index-embeddings-dashscope",
+	"paddleocr<3.0",
 	# add your dependencies here and run `uv sync` to install them
+	"paddlepaddle>=3.2.2",
 ]
