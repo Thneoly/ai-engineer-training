@@ -6,5 +6,10 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
 	"python-dotenv",
+	"llama-index",
+	"llama-index-core",
+	"llama-index-llms-openai-like",
+	"llama-index-llms-dashscope",
+	"llama-index-embeddings-dashscope",
 	# add your dependencies here and run `uv sync` to install them
 ]

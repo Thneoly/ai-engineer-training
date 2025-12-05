@@ -1,0 +1,1 @@
+export http_proxy="" && export https_proxy="" && export HTTP_PROXY="" && export HTTPS_PROXY="" && export all_proxy="" && export ALL_PROXY="" && source .venv/bin/activate && python -m chunking_research.main
