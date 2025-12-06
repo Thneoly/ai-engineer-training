@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  werewolf-game:
+    build: .
+    container_name: werewolf-game
+    ports:
+      - "8501:8501"
+    environment:
+      - DASHSCOPE_API_KEY=${DASHSCOPE_API_KEY}
+      - CREWAI_TRACING_ENABLED=${CREWAI_TRACING_ENABLED:-false}
+    volumes:
+      - ./logs:/app/logs
+      - ./data:/app/data
+    restart: unless-stopped
+    networks:
+      - werewolf-network
+
+networks:
+  werewolf-network:
+    driver: bridge
