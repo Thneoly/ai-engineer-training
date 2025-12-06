@@ -1,8 +1,13 @@
+"""Entrypoint for graph_rag CLI."""
 
-def main():
-# 作业的入口写在这里。你可以就写这个文件，或者扩展多个文件，但是执行入口留在这里。
-# 在根目录可以通过python -m graph_rag.main 运行
-    pass
+from .app import run_cli
+
+
+def main() -> None:
+    """CLI entry point used by `python -m graph_rag.main`."""
+
+    run_cli()
+
 
 if __name__ == "__main__":
     main()

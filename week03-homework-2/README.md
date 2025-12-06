@@ -14,7 +14,7 @@
 - 使用 LlamaIndex 构建索引
 - 部署 Milvus 作为向量库
 - 实现文档切片优化（语义切分 + 重叠）
-
+https://4e48b3491847c50dc99a268c39348945.beijing-aliyuncs.sbs/s?t=4e48b3491847c50dc99a268c39348945.jpg
 ### uv sync
 ```shell
 UV_INDEX_URL=https://pypi.org/simple uv sync

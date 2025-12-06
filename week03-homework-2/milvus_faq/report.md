@@ -55,3 +55,25 @@
 2. 增加向量去重与分层召回策略，提升长文档覆盖率。
 3. 在 API 中集成流式大模型生成（如调用 `response_synthesizer`）提供更自然回答。
 4. 构建 CI，自动运行 `reindex` + 典型 `query`，保障数据热更新流程的稳定性。
+
+## 7. 附录：典型运行日志
+以下为 `reindex` 和 `query` 的关键日志片段，确认系统行为：
+
+```
+$ uv run python -m milvus_faq.main reindex
+[INFO] Loading embedding model: BAAI/bge-small-zh-v1.5
+[INFO] Parsed 5 FAQ entries into 5 documents / 8 nodes
+[INFO] Vector index rebuilt successfully (SimpleVectorStore)
+
+$ uv run python -m milvus_faq.main query "如何退货"
+{
+  "question": "如何退货",
+  "answer": "请在订单完成后30天内登录个人中心，选择“申请退货”...",
+  "support": [
+    {"score": 0.78, "faq": "如何退货", "category": "售后"},
+    {...}
+  ]
+}
+```
+
+如需长时间运行在线服务，建议配合 `uvicorn --reload` 或容器化部署，并在生产环境中替换为真实 Milvus 集群。

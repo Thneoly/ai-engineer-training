@@ -1,0 +1,13 @@
+investor,investee,ratio,relation
+曦光资本,晨曦能源集团股份有限公司,0.45,shareholder
+青岚创投,晨曦能源集团股份有限公司,0.30,shareholder
+北辰基金,晨曦能源集团股份有限公司,0.25,shareholder
+皓月控股,曦光资本,0.60,shareholder
+辰极投资,曦光资本,0.40,shareholder
+晨曦能源集团股份有限公司,晨曦能源数字科技有限公司,0.55,subsidiary
+晨曦能源集团股份有限公司,星环智造科技有限公司,0.18,strategic
+星海并购基金,星环智造科技有限公司,0.18,shareholder
+晨晖资本,星环智造科技有限公司,0.22,shareholder
+创变资本,星环智造科技有限公司,0.35,shareholder
+创始团队,星环智造科技有限公司,0.25,shareholder
+皓月控股,星海并购基金,0.51,shareholder
