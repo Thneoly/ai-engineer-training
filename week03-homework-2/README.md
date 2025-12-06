@@ -15,6 +15,13 @@
 - 部署 Milvus 作为向量库
 - 实现文档切片优化（语义切分 + 重叠）
 
+### uv sync
+```shell
+UV_INDEX_URL=https://pypi.org/simple uv sync
+uv run python -m milvus_faq.main reindex
+uv run python -m milvus_faq.main query "如何退货"
+```
+
 ## 作业二：构建一个融合文档检索、图谱推理的多跳问答系统
 
 ### 场景设定
