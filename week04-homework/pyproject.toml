@@ -6,5 +6,16 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
 	"python-dotenv",
-	# add your dependencies here and run `uv sync` to install them
+	"fastapi",
+	"uvicorn[standard]",
+	"langchain>=0.2.0",
+	"langgraph>=0.0.46",
+	"langchain-community>=0.2.0",
+	"pydantic-settings",
+	"httpx",
+	"pytest",
+	"pytest-asyncio",
+	"anyio",
+	"dashscope>=1.19.3",
+	"gradio>=4.44.0",
 ]
