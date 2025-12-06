@@ -1,0 +1,109 @@
+version: "3.9"
+
+services:
+  research-service:
+    build:
+      context: .
+      dockerfile: mcp_servers/research_service/Dockerfile
+    environment:
+      - MODEL_NAME=${MODEL_NAME:-qwen-plus}
+      - DASHSCOPE_API_KEY=${DASHSCOPE_API_KEY}
+      - MOCK_MODE=${RESEARCH_MOCK:-false}
+    ports:
+      - "8101:8100"
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - python -c "import urllib.request as r; r.urlopen('http://127.0.0.1:8100/healthz')"
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    networks:
+      - mcp-net
+
+  writing-service:
+    build:
+      context: .
+      dockerfile: mcp_servers/writing_service/Dockerfile
+    environment:
+      - MODEL_NAME=${MODEL_NAME:-qwen-plus}
+      - DASHSCOPE_API_KEY=${DASHSCOPE_API_KEY}
+      - MOCK_MODE=${WRITING_MOCK:-false}
+    ports:
+      - "8102:8100"
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - python -c "import urllib.request as r; r.urlopen('http://127.0.0.1:8100/healthz')"
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    networks:
+      - mcp-net
+
+  review-service:
+    build:
+      context: .
+      dockerfile: mcp_servers/review_service/Dockerfile
+    environment:
+      - MODEL_NAME=${MODEL_NAME:-qwen-plus}
+      - DASHSCOPE_API_KEY=${DASHSCOPE_API_KEY}
+      - MOCK_MODE=${REVIEW_MOCK:-false}
+    ports:
+      - "8103:8100"
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - python -c "import urllib.request as r; r.urlopen('http://127.0.0.1:8100/healthz')"
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    networks:
+      - mcp-net
+
+  polish-service:
+    build:
+      context: .
+      dockerfile: mcp_servers/polish_service/Dockerfile
+    environment:
+      - MODEL_NAME=${MODEL_NAME:-qwen-plus}
+      - DASHSCOPE_API_KEY=${DASHSCOPE_API_KEY}
+      - MOCK_MODE=${POLISH_MOCK:-false}
+    ports:
+      - "8104:8100"
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - python -c "import urllib.request as r; r.urlopen('http://127.0.0.1:8100/healthz')"
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    networks:
+      - mcp-net
+
+networks:
+  mcp-net: {}

@@ -1,0 +1,9 @@
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+sse-starlette>=1.8.2
+langchain>=1.1.2
+langchain-community>=0.4.1
+dashscope>=1.25.2
+python-dotenv
+httpx>=0.28.1
+ddgs>=9.9.3
